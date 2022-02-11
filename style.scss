@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css?family=Quantico:400,700|Roboto:300,400&display=swap');
+$crna: #1e1e1e; /* rgba(30, 30, 30, .9) */
+$zelena: #78bc62;/* rgb(120, 188, 98) */
+$zuta: #ffd944;  /* rgb(255, 217, 68) */
+$siva: #102438;
+$svetloSiva: #f4f4f4;
+$bela: #fff;
+$padding: 100px 0;
+$headings: 3rem;
+$transition: .3s ease;
+/************
+mixins
+************/
+@mixin btn($bg1, $cl1, $bg2, $cl2, $border){
+    background: $bg1;
+    color: $cl1;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: $transition;
+    border:none;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+    &:hover{
+        background: $bg2;
+        color: $cl2;
+        border: $border;
+        text-decoration: none;
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: $siva;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Quantico', sans-serif;
+}
+ .active::after{
+        display: block;
+        content: "";
+        margin:20px -10px 0 -10px;
+        padding: 0;
+        height: 3px;
+        width: 70px;
+        background: $zelena;
+ }
+ .py-5{
+     padding: $padding!important;
+ }
+ p{
+     font-size: 13px;
+ }
+ hr{
+     width: 85%;
+     margin: auto;
+ }
+/**********
+Nav bar
+***********/
+.navbar{
+    padding-bottom: 0px !important;
+    .navbar-brand{
+        margin-left: 40px;
+        color: $crna;
+        font-family:'Quantico', sans-serif;
+        i{
+            color: $zelena;
+        }
+    }
+    .nav-link{
+        color: $crna;
+        text-transform: uppercase;
+        font-size: 15px;
+    }
+}
+/**********
+header
+************/
+header{
+    background:linear-gradient( rgba(30, 30, 30, .5), rgba(30, 30, 30, .5)) ,url(img/header.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 60vh;
+    position: relative;
+    top:-8px;
+    .row{
+        height: 50vh;
+        margin-right: 80px;
+        p{
+            margin: 5px 0;
+            @media(max-width:767px){ 
+                text-align: center;
+            }
+        }
+        a{
+            @include btn($zuta, $crna, transparent, $crna, 2px solid $zuta);
+            margin-top: 30px;
+            @media(max-width:767px){ 
+                text-align: center;
+            }
+        }
+        h1{
+            @media(max-width:767px){
+                font-size: 2.5rem;
+                text-align: center;
+            }
+        }
+    }
+}
+footer{
+    background: $crna;
+    img{
+        width: 20%;
+        margin-right: 5px;
+    }
+    h5{
+        margin-bottom: 30px;
+        i{
+            color: $zelena;
+        }
+    }
+    span{
+        a{
+            color: $zelena;
+            margin-right: 10px;
+        }
+    }
+    .list{
+        ul{
+            flex:0 0 40%;
+            a{
+                color: $svetloSiva;
+                font-size: 14px;
+            }
+        }
+    }
+    form{
+        margin-top: 70px;
+        @media(max-width:767px){ 
+            margin-top: 20px;
+        }
+        input{
+            padding: 5px;
+            width: 70%;
+            background: transparent;
+            border:2px solid $zelena;
+            color: $svetloSiva;
+        }
+        button{
+            border: none;
+            background: $zelena;
+            padding: 5px 15px;
+            position: relative;
+            left:-5px;
+        }
+    }
+    .col-md-10{
+        border-top: 1px solid gray;
+        margin: 30px 0;
+        margin-bottom: 0;
+        p{
+            margin-top: 30px;  
+        }
+    }
+}
+/************
+services
+************/
+.services{
+    .row{
+        .card{
+            padding: 30px;
+            border-radius: 0px;
+            box-shadow: 0 0 10px lightgray;
+            border: none;
+            position: relative;
+            top:-100px;
+            text-align: center;
+            h4{
+                border-bottom: 1px solid lightgray;
+                padding: 20px 0;
+                font-weight: 800;
+            }
+            p{
+                margin-top: 30px;
+            }
+        }
+    }
+}
+/*********
+works
+*********/
+.works{
+    .row{
+        img{
+            width:100%;
+        }
+    .first{
+        div{
+            img:first-child{
+                height: 35vh;
+                object-fit: cover;
+            }
+            img:last-child{
+                height: 35vh;
+                object-fit: cover;
+            }
+        }
+    }    
+    .second{
+       img{
+       height: 70vh;
+       object-fit: cover;
+       }
+    }
+    }
+    .third {
+        div:first-child{
+            img{
+                height: 35vh;
+                object-fit: cover;
+            }
+        }
+    }
+    .btn{
+    margin: 30px 0 60px 0;
+        a{
+         @include btn($zelena, $crna, transparent, $crna, 2px solid $zelena);
+        }
+    }
+}
+/***********
+About Page
+**********/
+.about{
+    background: $svetloSiva;
+    position: relative;
+    top: -8px;
+    .col-md-6:nth-child(1){
+         padding: 60px 30px 30px 60px;
+         @media(max-width:767px){ 
+            order:2;
+        }
+        h3{
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        ul{ 
+            li{
+                h4{
+                    font-size: .9rem;
+                    margin-bottom: 0;
+                    position: relative;
+                    left: -20px;
+                    text-transform: uppercase;
+                    font-weight: 800;
+                    @media(max-width:767px){ 
+                        font-size: .7rem;
+                    }
+                    &::before{
+                        font-family: "Font Awesome 5 Free"; 
+                        font-weight: 400; 
+                        content: "\f007";
+                        position: relative;
+                        left:-20px;
+                        top:30px;
+                        font-size: 2rem;
+                        background: $bela;
+                        color: $zelena;
+                        padding: 10px;
+                    }
+                }
+               
+                p{
+                    padding-left: 30px;
+                }
+            }
+        }
+    }
+    .col-md-6:nth-child(2){
+        img{
+            width: 100%;
+            height: 70vh;
+            object-fit: cover;
+            object-position: right;
+        }
+        @media(max-width:767px){ 
+            order:1;
+        }
+    }
+}
+/***********
+Team
+**********/
+.team{
+    .card-text{
+        font-size: 14px;
+        color: $zelena;
+    }
+    i{
+        color: gray;
+        margin: 10px;
+        transition: $transition;
+        &:hover{
+            color: $zelena;
+        }
+    }
+}
+/***********
+promoteBrand
+**********/
+.promoteBrand{
+    background: linear-gradient(to right,rgba(58, 129, 35, 0.6),  rgba(120, 188, 98,.6)),url(img/promote.jpg);
+    background-position: top;
+    background-size: cover;
+    a{
+        @include btn($crna, $svetloSiva, transparent, $crna, 2px solid $crna);
+    }
+}
+/***********
+review
+**********/
+.review{
+    .row{
+       flex-wrap: wrap;
+            .col-md-4{
+            border-top: 5px solid $svetloSiva;
+            flex:0 0 32%!important;
+            @media(max-width:767px){ 
+                flex:0 0 100%!important;
+            }
+            .picture{
+                img{
+                    width: 40%;
+                    border-radius: 50%;
+                }
+                div{
+                    padding-left: 20px;
+                    p{
+                        color: $zelena;
+                        text-align: right;
+                    }
+                }
+            }
+    }
+    }
+    }
+
+
+/***********
+Pricing
+***********/
+.bg{
+    background: url(img/header.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 35vh;
+    position: relative;
+    top:-8px;
+}
+/***********
+Price
+***********/
+.price{
+    .col-md-3{
+        box-shadow: 0 0 10px lightgray;
+        padding: 20px;
+        flex: 0 0 24%!important;
+        ul{
+            li{
+                font-size: 14px;
+                line-height: 2.5;
+                a{
+                    @include btn($zelena, $crna, transparent, $zelena, 2px solid $zelena);
+                    padding: 8px 15px;
+                    @media(max-width:767px){ 
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+/***********
+contact
+***********/
+.map{
+    position: relative;
+    top:-8px;
+}
+.contactUs{
+    ul{
+        li{
+        margin-left: 50px;
+            P{ 
+                font-size: 10px;
+            }
+        }
+        div{
+            position: relative;
+            top:40px;
+            i{
+                font-size: 2rem;
+                color: $zelena;
+            }
+        }
+    }
+    form{
+        input,
+        textarea{
+            border: 1px solid $zelena;
+            margin-bottom: 5px;
+            width: 100%;
+            padding: 3px 10px;
+            border-radius: 5px;
+        }
+        button{
+            @include btn($zelena, $crna, transparent, $zelena, 2px solid $zelena);
+        }
+    }
+}
+::placeholder{
+    font-size: 13px;
+}
